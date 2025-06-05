@@ -69,6 +69,8 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    bots: Bot;
+    bundles: Bundle;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -77,6 +79,8 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    bots: BotsSelect<false> | BotsSelect<true>;
+    bundles: BundlesSelect<false> | BundlesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -119,6 +123,16 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  firstName: string;
+  lastName: string;
+  phone?: string | null;
+  street?: string | null;
+  address?: string | null;
+  city?: string | null;
+  state?: string | null;
+  zip?: string | null;
+  country?: string | null;
+  role: 'admin' | 'customer';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -152,6 +166,33 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "bots".
+ */
+export interface Bot {
+  id: number;
+  name: string;
+  description?: string | null;
+  price: number;
+  discount?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "bundles".
+ */
+export interface Bundle {
+  id: number;
+  name: string;
+  description?: string | null;
+  bots?: (number | Bot)[] | null;
+  price: number;
+  discount?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -164,6 +205,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'bots';
+        value: number | Bot;
+      } | null)
+    | ({
+        relationTo: 'bundles';
+        value: number | Bundle;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -212,6 +261,16 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  firstName?: T;
+  lastName?: T;
+  phone?: T;
+  street?: T;
+  address?: T;
+  city?: T;
+  state?: T;
+  zip?: T;
+  country?: T;
+  role?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -240,6 +299,31 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "bots_select".
+ */
+export interface BotsSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  price?: T;
+  discount?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "bundles_select".
+ */
+export interface BundlesSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  bots?: T;
+  price?: T;
+  discount?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
