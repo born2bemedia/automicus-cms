@@ -71,6 +71,8 @@ export interface Config {
     media: Media;
     bots: Bot;
     bundles: Bundle;
+    bots: Bot;
+    bundles: Bundle;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -79,6 +81,8 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    bots: BotsSelect<false> | BotsSelect<true>;
+    bundles: BundlesSelect<false> | BundlesSelect<true>;
     bots: BotsSelect<false> | BotsSelect<true>;
     bundles: BundlesSelect<false> | BundlesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -123,6 +127,16 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  firstName: string;
+  lastName: string;
+  phone?: string | null;
+  street?: string | null;
+  address?: string | null;
+  city?: string | null;
+  state?: string | null;
+  zip?: string | null;
+  country?: string | null;
+  role: 'admin' | 'customer';
   firstName: string;
   lastName: string;
   phone?: string | null;
@@ -214,6 +228,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'bundles';
         value: number | Bundle;
+      } | null)
+    | ({
+        relationTo: 'bots';
+        value: number | Bot;
+      } | null)
+    | ({
+        relationTo: 'bundles';
+        value: number | Bundle;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -262,6 +284,16 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  firstName?: T;
+  lastName?: T;
+  phone?: T;
+  street?: T;
+  address?: T;
+  city?: T;
+  state?: T;
+  zip?: T;
+  country?: T;
+  role?: T;
   firstName?: T;
   lastName?: T;
   phone?: T;
