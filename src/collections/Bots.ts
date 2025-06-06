@@ -22,6 +22,16 @@ export const Bots: CollectionConfig = {
       type: 'textarea',
     },
     {
+      name: 'type',
+      type: 'select',
+      required: true,
+      options: [
+        { label: 'Forex', value: 'forex' },
+        { label: 'AI-Powered', value: 'ai-powered' },
+        { label: 'Gold', value: 'gold' },
+      ],
+    },
+    {
       name: 'price',
       type: 'number',
       required: true,

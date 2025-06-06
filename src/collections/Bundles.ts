@@ -1,4 +1,4 @@
-import { CollectionConfig, CollectionSlug, Option } from 'payload'
+import { CollectionConfig } from 'payload'
 
 export const Bundles: CollectionConfig = {
   slug: 'bundles',
