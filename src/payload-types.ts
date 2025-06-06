@@ -172,6 +172,7 @@ export interface Bot {
   id: number;
   name: string;
   description?: string | null;
+  type: 'forex' | 'ai-powered' | 'gold';
   price: number;
   discount?: number | null;
   updatedAt: string;
@@ -308,6 +309,7 @@ export interface MediaSelect<T extends boolean = true> {
 export interface BotsSelect<T extends boolean = true> {
   name?: T;
   description?: T;
+  type?: T;
   price?: T;
   discount?: T;
   updatedAt?: T;
