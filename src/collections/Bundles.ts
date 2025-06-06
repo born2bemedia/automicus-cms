@@ -38,16 +38,6 @@ export const Bundles: CollectionConfig = {
       ],
     },
     {
-      name: 'type',
-      type: 'select',
-      required: true,
-      options: [
-        { label: 'Mixed Strategy', value: 'mixed' },
-        { label: 'High-Frequency & Scalping', value: 'high-frequency' },
-        { label: 'Trend-Following & Momentum', value: 'trend-following' },
-      ],
-    },
-    {
       name: 'price',
       type: 'number',
       required: true,
