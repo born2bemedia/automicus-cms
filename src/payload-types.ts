@@ -186,6 +186,7 @@ export interface Bundle {
   name: string;
   description?: string | null;
   bots?: (number | Bot)[] | null;
+  type: 'mixed' | 'high-frequency' | 'trend-following';
   price: number;
   discount?: number | null;
   updatedAt: string;
@@ -320,6 +321,7 @@ export interface BundlesSelect<T extends boolean = true> {
   name?: T;
   description?: T;
   bots?: T;
+  type?: T;
   price?: T;
   discount?: T;
   updatedAt?: T;

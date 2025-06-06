@@ -1,4 +1,4 @@
-import { CollectionConfig, CollectionSlug } from 'payload'
+import { CollectionConfig, CollectionSlug, Option } from 'payload'
 
 export const Bundles: CollectionConfig = {
   slug: 'bundles',
@@ -26,6 +26,16 @@ export const Bundles: CollectionConfig = {
       type: 'relationship',
       relationTo: 'bots',
       hasMany: true,
+    },
+    {
+      name: 'type',
+      type: 'select',
+      required: true,
+      options: [
+        { label: 'Mixed Strategy', value: 'mixed' },
+        { label: 'High-Frequency & Scalping', value: 'high-frequency' },
+        { label: 'Trend-Following & Momentum', value: 'trend-following' },
+      ],
     },
     {
       name: 'price',
