@@ -7,10 +7,8 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
-import { Users } from './collections/Users'
-import { Media } from './collections/Media'
-import { Bots } from './collections/Bots'
-import { Bundles } from './collections/Bundles'
+import { Users, Media, Bots, Bundles } from './collections'
+import { TextBlock } from './blocks'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -34,6 +32,7 @@ export default buildConfig({
     },
   }),
   sharp,
+  blocks: [TextBlock],
   plugins: [
     s3Storage({
       collections: {

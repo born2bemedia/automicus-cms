@@ -1,3 +1,4 @@
+import { TextBlock } from '@/blocks'
 import { CollectionConfig } from 'payload'
 
 export const Bots: CollectionConfig = {
@@ -19,7 +20,7 @@ export const Bots: CollectionConfig = {
     },
     {
       name: 'description',
-      type: 'textarea',
+      type: 'text',
     },
     {
       name: 'type',
@@ -32,6 +33,20 @@ export const Bots: CollectionConfig = {
       ],
     },
     {
+      name: 'excerpt',
+      type: 'text',
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'summary',
+      type: 'text',
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       name: 'price',
       type: 'number',
       required: true,
@@ -42,6 +57,29 @@ export const Bots: CollectionConfig = {
     {
       name: 'discount',
       type: 'number',
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'features',
+      type: 'blocks',
+      blocks: [TextBlock],
+    },
+    {
+      name: 'suitableFor',
+      type: 'blocks',
+      blocks: [TextBlock],
+    },
+    {
+      name: 'howItWorks',
+      type: 'blocks',
+      blocks: [TextBlock],
+    },
+    {
+      name: 'file',
+      type: 'upload',
+      relationTo: 'media',
       admin: {
         position: 'sidebar',
       },
