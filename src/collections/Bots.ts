@@ -33,6 +33,13 @@ export const Bots: CollectionConfig = {
       ],
     },
     {
+      name: 'slug',
+      type: 'text',
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       name: 'excerpt',
       type: 'text',
       admin: {

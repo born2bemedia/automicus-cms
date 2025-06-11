@@ -186,6 +186,7 @@ export interface Bot {
   name: string;
   description?: string | null;
   type: 'forex' | 'ai-powered' | 'gold';
+  slug?: string | null;
   excerpt?: string | null;
   summary?: string | null;
   price: number;
@@ -353,6 +354,7 @@ export interface BotsSelect<T extends boolean = true> {
   name?: T;
   description?: T;
   type?: T;
+  slug?: T;
   excerpt?: T;
   summary?: T;
   price?: T;
