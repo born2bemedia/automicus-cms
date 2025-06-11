@@ -65,7 +65,9 @@ export interface Config {
   auth: {
     users: UserAuthOperations;
   };
-  blocks: {};
+  blocks: {
+    textBlock: TextBlock;
+  };
   collections: {
     users: User;
     media: Media;
@@ -116,6 +118,17 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "textBlock".
+ */
+export interface TextBlock {
+  title: string;
+  description: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'textBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -173,8 +186,38 @@ export interface Bot {
   name: string;
   description?: string | null;
   type: 'forex' | 'ai-powered' | 'gold';
+  excerpt?: string | null;
+  summary?: string | null;
   price: number;
   discount?: number | null;
+  features?:
+    | {
+        title: string;
+        description: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'textBlock';
+      }[]
+    | null;
+  suitableFor?:
+    | {
+        title: string;
+        description: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'textBlock';
+      }[]
+    | null;
+  howItWorks?:
+    | {
+        title: string;
+        description: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'textBlock';
+      }[]
+    | null;
+  file?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -310,8 +353,47 @@ export interface BotsSelect<T extends boolean = true> {
   name?: T;
   description?: T;
   type?: T;
+  excerpt?: T;
+  summary?: T;
   price?: T;
   discount?: T;
+  features?:
+    | T
+    | {
+        textBlock?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  suitableFor?:
+    | T
+    | {
+        textBlock?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  howItWorks?:
+    | T
+    | {
+        textBlock?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  file?: T;
   updatedAt?: T;
   createdAt?: T;
 }
