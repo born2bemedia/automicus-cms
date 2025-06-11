@@ -1,4 +1,3 @@
-// storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
@@ -7,7 +6,7 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
-import { Users, Media, Bots, Bundles } from './collections'
+import { Users, Media, Bots, Bundles, Reviews } from './collections'
 import { TextBlock } from './blocks'
 
 const filename = fileURLToPath(import.meta.url)
@@ -20,7 +19,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Bots, Bundles],
+  collections: [Users, Media, Bots, Bundles, Reviews],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
