@@ -247,6 +247,7 @@ export interface Review {
   id: number;
   title: string;
   slug: string;
+  img: number | Media;
   bot?: (number | null) | Bot;
   excerpt: string;
   content: {
@@ -454,6 +455,7 @@ export interface BundlesSelect<T extends boolean = true> {
 export interface ReviewsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  img?: T;
   bot?: T;
   excerpt?: T;
   content?: T;
