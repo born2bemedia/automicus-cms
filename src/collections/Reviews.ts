@@ -27,6 +27,15 @@ export const Reviews: CollectionConfig = {
       },
     },
     {
+      name: 'img',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       name: 'bot',
       type: 'relationship',
       relationTo: 'bots',
