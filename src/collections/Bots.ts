@@ -29,6 +29,7 @@ export const Bots: CollectionConfig = {
       options: [
         { label: 'Forex', value: 'forex' },
         { label: 'AI-Powered', value: 'ai-powered' },
+        { label: 'Scalping', value: 'scalping' },
         { label: 'Gold', value: 'gold' },
       ],
     },
