@@ -32,6 +32,10 @@ export default buildConfig({
   }),
   sharp,
   blocks: [TextBlock],
+  localization: {
+    locales: ['en', 'de', 'it'],
+    defaultLocale: 'en',
+  },
   plugins: [
     s3Storage({
       collections: {
