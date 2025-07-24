@@ -92,5 +92,14 @@ export const Bots: CollectionConfig = {
         position: 'sidebar',
       },
     },
+    {
+      name: 'pin',
+      type: 'checkbox',
+      admin: {
+        position: 'sidebar',
+      },
+      defaultValue: false,
+      required: false,
+    },
   ],
 }

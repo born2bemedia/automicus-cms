@@ -187,7 +187,7 @@ export interface Bot {
   id: number;
   name: string;
   description?: string | null;
-  type: 'forex' | 'ai-powered' | 'gold';
+  type: 'forex' | 'ai-powered' | 'scalping' | 'gold';
   slug?: string | null;
   excerpt?: string | null;
   summary?: string | null;
@@ -221,6 +221,7 @@ export interface Bot {
       }[]
     | null;
   file?: (number | null) | Media;
+  pin?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -431,6 +432,7 @@ export interface BotsSelect<T extends boolean = true> {
             };
       };
   file?: T;
+  pin?: T;
   updatedAt?: T;
   createdAt?: T;
 }
