@@ -6,7 +6,7 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
-import { Users, Media, Bots, Bundles, Reviews } from './collections'
+import { Users, Media, Bots, Bundles, Reviews, Orders } from './collections'
 import { TextBlock } from './blocks'
 
 const filename = fileURLToPath(import.meta.url)
@@ -19,7 +19,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Bots, Bundles, Reviews],
+  collections: [Users, Media, Bots, Bundles, Reviews, Orders],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
