@@ -17,6 +17,7 @@ export const Reviews: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'slug',
@@ -45,11 +46,13 @@ export const Reviews: CollectionConfig = {
       name: 'excerpt',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'content',
       type: 'richText',
       required: true,
+      localized: true,
     },
   ],
 }

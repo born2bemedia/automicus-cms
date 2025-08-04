@@ -17,10 +17,12 @@ export const Bots: CollectionConfig = {
       name: 'name',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'description',
       type: 'text',
+      localized: true,
     },
     {
       name: 'type',
@@ -46,6 +48,7 @@ export const Bots: CollectionConfig = {
       admin: {
         position: 'sidebar',
       },
+      localized: true,
     },
     {
       name: 'summary',
@@ -53,6 +56,7 @@ export const Bots: CollectionConfig = {
       admin: {
         position: 'sidebar',
       },
+      localized: true,
     },
     {
       name: 'price',
@@ -73,16 +77,19 @@ export const Bots: CollectionConfig = {
       name: 'features',
       type: 'blocks',
       blocks: [TextBlock],
+      localized: true,
     },
     {
       name: 'suitableFor',
       type: 'blocks',
       blocks: [TextBlock],
+      localized: true,
     },
     {
       name: 'howItWorks',
       type: 'blocks',
       blocks: [TextBlock],
+      localized: true,
     },
     {
       name: 'file',
