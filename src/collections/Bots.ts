@@ -51,6 +51,15 @@ export const Bots: CollectionConfig = {
       localized: true,
     },
     {
+      name: 'deals',
+      type: 'text',
+      admin: {
+        position: 'sidebar',
+      },
+      localized: true,
+      required: false,
+    },
+    {
       name: 'summary',
       type: 'text',
       admin: {

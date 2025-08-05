@@ -192,6 +192,7 @@ export interface Bot {
   type: 'forex' | 'ai-powered' | 'scalping' | 'gold';
   slug?: string | null;
   excerpt?: string | null;
+  deals?: string | null;
   summary?: string | null;
   price: number;
   discount?: number | null;
@@ -431,6 +432,7 @@ export interface BotsSelect<T extends boolean = true> {
   type?: T;
   slug?: T;
   excerpt?: T;
+  deals?: T;
   summary?: T;
   price?: T;
   discount?: T;
