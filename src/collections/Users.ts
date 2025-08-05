@@ -8,15 +8,15 @@ export const Users: CollectionConfig = {
   auth: true,
   fields: [
     {
-      name: 'firstName',
+      name: 'fullName',
       type: 'text',
-      label: 'First Name',
+      label: 'Full Name',
       required: true,
     },
     {
-      name: 'lastName',
-      type: 'text',
-      label: 'Last Name',
+      name: 'email',
+      type: 'email',
+      label: 'Email',
       required: true,
     },
     {

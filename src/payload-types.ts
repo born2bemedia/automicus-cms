@@ -140,8 +140,7 @@ export interface TextBlock {
  */
 export interface User {
   id: number;
-  firstName: string;
-  lastName: string;
+  fullName: string;
   phone?: string | null;
   street?: string | null;
   address?: string | null;
@@ -383,8 +382,7 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
-  firstName?: T;
-  lastName?: T;
+  fullName?: T;
   phone?: T;
   street?: T;
   address?: T;
