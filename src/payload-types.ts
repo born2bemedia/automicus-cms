@@ -74,6 +74,7 @@ export interface Config {
     bots: Bot;
     bundles: Bundle;
     reviews: Review;
+    orders: Order;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -85,6 +86,7 @@ export interface Config {
     bots: BotsSelect<false> | BotsSelect<true>;
     bundles: BundlesSelect<false> | BundlesSelect<true>;
     reviews: ReviewsSelect<false> | ReviewsSelect<true>;
+    orders: OrdersSelect<false> | OrdersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -271,6 +273,39 @@ export interface Review {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "orders".
+ */
+export interface Order {
+  id: number;
+  orderNumber: string;
+  user?: (number | null) | User;
+  items?:
+    | {
+        productName: string;
+        quantity: number;
+        price: number;
+        id?: string | null;
+      }[]
+    | null;
+  total: number;
+  status: 'pending' | 'completed' | 'failed';
+  billingAddress?: {
+    'Full Name'?: string | null;
+    email?: string | null;
+    phone?: string | null;
+    addressLine1?: string | null;
+    addressLine2?: string | null;
+    city?: string | null;
+    country?: string | null;
+    zip?: string | null;
+  };
+  createdAt: string;
+  documents?: (number | null) | Media;
+  invoice?: (number | null) | Media;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -295,6 +330,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'reviews';
         value: number | Review;
+      } | null)
+    | ({
+        relationTo: 'orders';
+        value: number | Order;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -463,6 +502,40 @@ export interface ReviewsSelect<T extends boolean = true> {
   content?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "orders_select".
+ */
+export interface OrdersSelect<T extends boolean = true> {
+  orderNumber?: T;
+  user?: T;
+  items?:
+    | T
+    | {
+        productName?: T;
+        quantity?: T;
+        price?: T;
+        id?: T;
+      };
+  total?: T;
+  status?: T;
+  billingAddress?:
+    | T
+    | {
+        'Full Name'?: T;
+        email?: T;
+        phone?: T;
+        addressLine1?: T;
+        addressLine2?: T;
+        city?: T;
+        country?: T;
+        zip?: T;
+      };
+  createdAt?: T;
+  documents?: T;
+  invoice?: T;
+  updatedAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
