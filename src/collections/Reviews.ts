@@ -1,4 +1,3 @@
-import { TextBlock } from '@/blocks'
 import { CollectionConfig } from 'payload'
 
 export const Reviews: CollectionConfig = {
