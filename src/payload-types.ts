@@ -140,14 +140,14 @@ export interface TextBlock {
  */
 export interface User {
   id: number;
-  fullName: string;
+  firstName: string;
+  lastName: string;
   phone?: string | null;
-  street?: string | null;
-  address?: string | null;
+  addressLine1?: string | null;
+  addressLine2?: string | null;
   city?: string | null;
-  state?: string | null;
-  zip?: string | null;
   country?: string | null;
+  zip?: string | null;
   role: 'admin' | 'customer';
   updatedAt: string;
   createdAt: string;
@@ -279,18 +279,12 @@ export interface Order {
   id: number;
   orderNumber: string;
   user?: (number | null) | User;
-  items?:
-    | {
-        productName: string;
-        quantity: number;
-        price: number;
-        id?: string | null;
-      }[]
-    | null;
+  items?: (number | Bot)[] | null;
   total: number;
   status: 'pending' | 'completed' | 'failed';
   billingAddress?: {
-    'Full Name'?: string | null;
+    firstName?: string | null;
+    lastName?: string | null;
     email?: string | null;
     phone?: string | null;
     addressLine1?: string | null;
@@ -382,14 +376,14 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
-  fullName?: T;
+  firstName?: T;
+  lastName?: T;
   phone?: T;
-  street?: T;
-  address?: T;
+  addressLine1?: T;
+  addressLine2?: T;
   city?: T;
-  state?: T;
-  zip?: T;
   country?: T;
+  zip?: T;
   role?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -510,20 +504,14 @@ export interface ReviewsSelect<T extends boolean = true> {
 export interface OrdersSelect<T extends boolean = true> {
   orderNumber?: T;
   user?: T;
-  items?:
-    | T
-    | {
-        productName?: T;
-        quantity?: T;
-        price?: T;
-        id?: T;
-      };
+  items?: T;
   total?: T;
   status?: T;
   billingAddress?:
     | T
     | {
-        'Full Name'?: T;
+        firstName?: T;
+        lastName?: T;
         email?: T;
         phone?: T;
         addressLine1?: T;
