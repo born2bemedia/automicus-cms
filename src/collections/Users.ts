@@ -13,9 +13,15 @@ export const Users: CollectionConfig = {
   auth: true,
   fields: [
     {
-      name: 'fullName',
+      name: 'firstName',
       type: 'text',
-      label: 'Full Name',
+      label: 'First Name',
+      required: true,
+    },
+    {
+      name: 'lastName',
+      type: 'text',
+      label: 'Last Name',
       required: true,
     },
     {
@@ -31,15 +37,15 @@ export const Users: CollectionConfig = {
       required: false,
     },
     {
-      name: 'street',
+      name: 'addressLine1',
       type: 'text',
-      label: 'Street',
+      label: 'Address Line 1',
       required: false,
     },
     {
-      name: 'address',
-      type: 'textarea',
-      label: 'Address',
+      name: 'addressLine2',
+      type: 'text',
+      label: 'Address Line 2',
       required: false,
     },
     {
@@ -49,21 +55,15 @@ export const Users: CollectionConfig = {
       required: false,
     },
     {
-      name: 'state',
+      name: 'country',
       type: 'text',
-      label: 'State',
+      label: 'Country',
       required: false,
     },
     {
       name: 'zip',
       type: 'text',
       label: 'Zip Code',
-      required: false,
-    },
-    {
-      name: 'country',
-      type: 'text',
-      label: 'Country',
       required: false,
     },
     {

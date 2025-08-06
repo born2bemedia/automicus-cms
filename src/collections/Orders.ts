@@ -27,27 +27,10 @@ export const Orders: CollectionConfig = {
     },
     {
       name: 'items',
-      type: 'array',
+      type: 'relationship',
       label: 'Ordered Items',
-      fields: [
-        {
-          name: 'productName',
-          type: 'text',
-          label: 'Product Name',
-          required: true,
-        },
-        {
-          name: 'quantity',
-          type: 'number',
-          required: true,
-          min: 1,
-        },
-        {
-          name: 'price',
-          type: 'number',
-          required: true,
-        },
-      ],
+      relationTo: 'bots',
+      hasMany: true,
     },
     {
       name: 'total',
@@ -70,7 +53,8 @@ export const Orders: CollectionConfig = {
       name: 'billingAddress',
       type: 'group',
       fields: [
-        { name: 'Full Name', type: 'text', required: false },
+        { name: 'firstName', type: 'text', required: false },
+        { name: 'lastName', type: 'text', required: false },
         { name: 'email', type: 'email', required: false },
         { name: 'phone', type: 'text', required: false },
         { name: 'addressLine1', type: 'text', required: false },
