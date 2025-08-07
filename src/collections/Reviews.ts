@@ -36,6 +36,22 @@ export const Reviews: CollectionConfig = {
       },
     },
     {
+      name: 'metaTitle',
+      type: 'text',
+      required: false,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'metaDescription',
+      type: 'text',
+      required: false,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       name: 'bot',
       type: 'relationship',
       relationTo: 'bots',
