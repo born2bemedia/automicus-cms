@@ -251,6 +251,8 @@ export interface Review {
   title: string;
   slug: string;
   img: number | Media;
+  metaTitle?: string | null;
+  metaDescription?: string | null;
   bot?: (number | null) | Bot;
   excerpt: string;
   content: {
@@ -491,6 +493,8 @@ export interface ReviewsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   img?: T;
+  metaTitle?: T;
+  metaDescription?: T;
   bot?: T;
   excerpt?: T;
   content?: T;
