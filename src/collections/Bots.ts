@@ -33,6 +33,7 @@ export const Bots: CollectionConfig = {
         { label: 'AI-Powered', value: 'ai-powered' },
         { label: 'Scalping', value: 'scalping' },
         { label: 'Gold', value: 'gold' },
+        { label: 'Multi-Assets', value: 'multi-assets' },
       ],
     },
     {
