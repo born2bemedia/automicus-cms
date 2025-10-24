@@ -188,7 +188,7 @@ export interface Bot {
   id: number;
   name: string;
   description?: string | null;
-  type: 'forex' | 'ai-powered' | 'scalping' | 'gold';
+  type: 'forex' | 'ai-powered' | 'scalping' | 'gold' | 'multi-assets';
   slug?: string | null;
   excerpt?: string | null;
   deals?: string | null;

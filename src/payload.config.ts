@@ -20,6 +20,11 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Bots, Bundles, Reviews, Orders],
+  upload: {
+    limits: {
+      fileSize: 10 * 1024 * 1024,
+    },
+  },
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
